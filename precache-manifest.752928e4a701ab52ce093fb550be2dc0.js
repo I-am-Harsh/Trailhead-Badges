@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "50ed2f32383ff6602a07459b2321f868",
+    "revision": "9c1ef6326e209d916cea97ea725e6129",
     "url": "/Trailhead-Badges/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Trailhead-Badges/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "55e609086d654056866a",
+    "revision": "90d74b4d04933b9e586b",
     "url": "/Trailhead-Badges/static/css/main.d1b05096.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Trailhead-Badges/static/js/2.4559264a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "55e609086d654056866a",
-    "url": "/Trailhead-Badges/static/js/main.c0cbbf56.chunk.js"
+    "revision": "90d74b4d04933b9e586b",
+    "url": "/Trailhead-Badges/static/js/main.37029f14.chunk.js"
   },
   {
     "revision": "29cb50ccafaee87676ae",
