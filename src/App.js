@@ -1,13 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import MainComponent from '../src/Components/MainComponent';
+import LeaderboardComponent from './Components/LeaderboardComponent';
+import { BrowserRouter,Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <MainComponent/>
-    </div>
+    <BrowserRouter>
+        <Switch>
+          <Route exact path ='/' component = {MainComponent}/>
+          <Route exact path ='/leaderboard' component = {LeaderboardComponent}/>
+        </Switch>
+    </BrowserRouter>
   );
 }
 

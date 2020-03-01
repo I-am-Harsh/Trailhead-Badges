@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
-import $ from 'jquery';
+import {Nav, Navbar, NavLink, NavbarBrand} from 'reactstrap';
+import {Link} from 'react-router-dom';
+
 
 class MainComponent extends Component{
 
@@ -9,19 +11,7 @@ class MainComponent extends Component{
             url : "hverma99"
         }
     }
-    
-    getBadges = () => {
-        console.log(this.state.url);
-        // get user id
 
-        var full_url = "https://anyorigin.com/go?url=" + encodeURIComponent("https://trailblazer.me/id/") + this.state.url + "&callback=?";
-        console.log(full_url)
-        $.get(full_url, function(response) { 
-            console.log(full_url)
-            console.log("Sent");
-            console.log(response);
-        });
-    }
 
     change = ({target}) =>{
         this.setState({
@@ -32,17 +22,32 @@ class MainComponent extends Component{
 
     render(){
         return(
-            <div className ='container-fluid'>
-                <div className = 'row'>
-                    Enter your profile id :
-                    <input type='text' className='form-control' name='url' onChange={this.change}></input>
-                    <button className='form-control' onClick={this.getBadges}>Submit</button>
+            
+            <div className ='container'>
+                <div>
+                    <Navbar light>
+                        <NavbarBrand selected>
+                            <Link to="/">Search</Link>
+                        </NavbarBrand>
+                        <Nav>
+                            <NavLink>
+                                <Link to='/leaderboard'>
+                                    LeaderBoard
+                                </Link> 
+                            </NavLink>
+                        </Nav>
+                    </Navbar>
                 </div>
-                 {/* <div className ='row'>
-                    {
-                        
-                    }
-                </div>  */}
+                <div>
+                    Enter your profile id :
+                    <br/>
+                    <input type='text' className='form-control' name='url' onChange={this.change}></input>
+                </div>
+                <div className='mt-2'>
+                    
+                    <button className='form-control success' onClick={this.getBadges}>Submit</button>
+                </div>
+                
             </div>
 
         );
