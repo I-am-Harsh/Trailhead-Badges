@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Trailhead-Badges/precache-manifest.3f6dce88bf52da8b2012b66585f9d3eb.js"
+  "/Trailhead-Badges/precache-manifest.c5eef0377f7d5dcabdb47d6df6ab4a9d.js"
 );
 
 self.addEventListener('message', (event) => {
