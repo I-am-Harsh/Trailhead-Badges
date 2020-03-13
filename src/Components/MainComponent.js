@@ -8,7 +8,7 @@ class MainComponent extends Component{
     constructor(){
         super();
         this.state = {
-            url : "hverma99"
+            url : ""
         }
     }
 
@@ -18,18 +18,18 @@ class MainComponent extends Component{
             [target.name] : target.value
         });
     }
-
-
+    
     render(){
         return(
-            
             <div className ='container'>
                 <div>
                     <Navbar light>
-                        <NavbarBrand selected>
-                            <Link to="/">Search</Link>
+                        <NavbarBrand>
+                            <NavLink selected>
+                                Search
+                            </NavLink>
                         </NavbarBrand>
-                        <Nav>
+                        <Nav>   
                             <NavLink>
                                 <Link to='/leaderboard'>
                                     LeaderBoard
@@ -38,18 +38,17 @@ class MainComponent extends Component{
                         </Nav>
                     </Navbar>
                 </div>
-                <div>
-                    Enter your profile id :
-                    <br/>
-                    <input type='text' className='form-control' name='url' onChange={this.change}></input>
-                </div>
-                <div className='mt-2'>
-                    
-                    <button className='form-control success' onClick={this.getBadges}>Submit</button>
-                </div>
-                
+                <form className='form-group' method='POST' action='/:profile' >
+                    <div>        
+                        Enter your profile id :
+                        <br/>
+                        <input type='text' className='form-control' name='url' onChange={this.change}></input>
+                    </div>
+                    <div className='mt-2'>
+                        <button className='form-control success'>Submit</button>
+                    </div>
+                </form>
             </div>
-
         );
     }
 }
