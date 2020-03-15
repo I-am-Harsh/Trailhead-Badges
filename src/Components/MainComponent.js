@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Nav, Navbar, NavLink, NavbarBrand} from 'reactstrap';
-import {Link} from 'react-router-dom';
+import {Nav, Navbar, NavLink} from 'reactstrap';
+import axios from 'axios';
 
 
 class MainComponent extends Component{
@@ -8,8 +8,10 @@ class MainComponent extends Component{
     constructor(){
         super();
         this.state = {
-            url : ""
+            url : "",
+            data : []
         }
+        this.getDataAxios = this.getDataAxios.bind(this);
     }
 
 
@@ -17,35 +19,46 @@ class MainComponent extends Component{
         this.setState({
             [target.name] : target.value
         });
+        console.log("change URL : " + this.state.url);
     }
+
     
+    async getDataAxios(){
+        console.log("getData : " + this.state.url);
+        const response = await axios.get("http://localhost:9000/" + this.state.url)
+        const json = await response;
+        console.log(json);
+    }
+
+    // getBadges = () => {
+    //     fetch('http:localhost:9000/' + this.state.url)
+    //     .then(res => res.json())
+    //     .then(json => this.setState({ data : json}));
+    //     console.log(this.state.data);
+    // }
     render(){
         return(
             <div className ='container'>
                 <div>
                     <Navbar light>
-                        <NavbarBrand>
-                            <NavLink selected>
+                        <Nav selected>
                                 Search
-                            </NavLink>
-                        </NavbarBrand>
+                        </Nav>
                         <Nav>   
-                            <NavLink>
-                                <Link to='/leaderboard'>
-                                    LeaderBoard
-                                </Link> 
+                            <NavLink href='/leaderboard'>
+                                LeaderBoard 
                             </NavLink>
                         </Nav>
                     </Navbar>
                 </div>
-                <form className='form-group' method='POST' action='/:profile' >
+                <form className='form-group'>
                     <div>        
                         Enter your profile id :
                         <br/>
-                        <input type='text' className='form-control' name='url' onChange={this.change}></input>
+                        <input type='text' className='form-control' id='' name='url' onChange={this.change}></input>
                     </div>
                     <div className='mt-2'>
-                        <button className='form-control success'>Submit</button>
+                        <button className='form-control success' onClick={this.getDataAxios} >Submit</button>
                     </div>
                 </form>
             </div>
