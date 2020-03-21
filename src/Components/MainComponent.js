@@ -25,9 +25,9 @@ class MainComponent extends Component{
     
     async getDataAxios(){
         console.log("getData : " + this.state.url);
-        const response = await axios.get("http://localhost:9000/" + this.state.url)
-        const json = await response;
-        console.log(json);
+        const response = await axios.get("http://localhost:9000/" + "resp")
+        this.state.data = response;
+        console.log(this.state.data);
     }
 
     // getBadges = () => {
@@ -61,6 +61,9 @@ class MainComponent extends Component{
                         <button className='form-control success' onClick={this.getDataAxios} >Submit</button>
                     </div>
                 </form>
+                <p>
+                    {this.state.data[0]}
+                </p>
             </div>
         );
     }
